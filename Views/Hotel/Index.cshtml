@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVCClientApp.Models.HotelDetail>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarLevel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StarLevel)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.HotelCode  }) |
+                @Html.ActionLink("Details", "Details", new { id=item.HotelCode }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.HotelCode})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
